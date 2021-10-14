@@ -32,7 +32,7 @@
         <input id="inputElement" type="text"><br><br><button onclick="makeNewDiv()">Push value</button>
         <button onclick="popItem()">Pop</button>
         <button onclick="zap()">Zap values</button>
-        
+        <button class="btn btn-primary" onclick="unique()">Unique</button>
         
     </body>
     <script>
@@ -61,8 +61,10 @@
             var items = document.getElementsByClassName("stack")
             let input = document.getElementById("inputElement").value
             if(items!= undefined && items.length >0){
-                for(let index=0; index<items.length; index++){
-                    if(items[index].innerHTML == input){
+                for(let index=0; index<items.length; index++)
+                {
+                    if(items[index].innerHTML == input)
+                    {
                         var removeVar = items[index].innerHTML
                         items[index].remove()
                         console.log(removeVar)
@@ -71,5 +73,23 @@
                 }
             }
         }
+
+        function unique()
+        {
+        var stackItems = document.getElementsByClassName("stack")
+		for(var i=0; i<stackItems.length; i++)
+        {
+			for(var j=i+1; j<stackItems.length; j++)
+            {
+                if(stackItems[i].innerHTML == stackItems[j].innerHTML)
+                {
+                    stackItems[j].remove()
+                    i--;
+                    break;
+                }
+            }
+               }
+                }
+		
     </script>
     </html>	

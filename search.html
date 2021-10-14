@@ -31,7 +31,9 @@
       <div class="d-inline p-2 bg-success text-white">Click on the squares to search for wild life.</div>
       <div class="d-inline p-2 bg-warning text-black" id="tries">Number of tries is zero.</div>
       <div class="d-inline p-2 bg-danger text-white" id="distance">Distance is unknown.</div>
-
+      <br><br>
+      <div class = "container"><button onclick="newGame()">New Game</button>   </div>
+    </div>
       <br><br>
       <div class="row">
         <div class="col-sm-1"><img src="plants.jpg" id="0" onclick="check(0)" alt="plants" style="width: 100px;height: 100px; padding-bottom: 4%;"></div>
@@ -77,7 +79,7 @@
                   "18","19","20","21","22","23"
                 ];
         var triesCount = 0;
-        var animalLocation = 13;
+        var animalLocation =  Math.floor(Math.random()*23);
 
      function check(position)
      {
@@ -108,17 +110,23 @@
             ]
 
         let x,y,X,Y
-        for(var i = 0;i<ids.length;i++){
-            for(var j =0 ;j<ids[i].length;j++){
-                if(ids[i][j]== pos1){
+        for(var i = 0;i<ids.length;i++)
+        { 
+          for(var j =0 ;j<ids[i].length;j++)
+          {
+             if(ids[i][j]== pos1)
+                {
                     x=i
                     y=j
                 }
-            }
+          }
         }
-        for(var i = 0;i<ids.length;i++){
-            for(var j =0 ;j<ids[i].length;j++){
-                if(ids[i][j]== pos2){
+        for(var i = 0;i<ids.length;i++)
+        {
+            for(var j =0 ;j<ids[i].length;j++)
+            {
+                if(ids[i][j]== pos2)
+                {
                     X=i
                     Y=j
                 }
@@ -126,6 +134,13 @@
         }
         return (Math.max(Math.abs(x-X),Math.abs(y-Y)))
     }
+
+    function newGame(){
+            clickCount =0
+            let treasureLocation = Math.random(0,24)
+            document.getElementById("tries").innerHTML="Number of clicks is "+clickCount
+            document.getElementById("distance").innerHTML="Distance is Unknown"
+        }
 
    </script>
   </body>
